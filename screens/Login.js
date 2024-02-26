@@ -11,19 +11,27 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const response = axios.post('http://127.0.0.1:8000/login', {
-                email,
-                password,
-            });
+            const response = await axios.post(
+                'https://c3ea-113-160-224-57.ngrok-free.app/login',
+                JSON.stringify({
+                    email,
+                    password,
+                }),
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
 
             console.log('Login successful:', response.data);
 
-            // if (response.data.message === 'Login successful') {
-            //     navigation.navigate('Chat');
-            // } else {
-            //     console.error('Login failed:', response.data.detail);
-            // }
-            navigation.navigate('Chat');
+            if (response.data.message === 'Login successful') {
+                navigation.navigate('Home');
+            } else {
+                console.error('Login failed:', response.data.detail);
+            }
+            navigation.navigate('Home');
         } catch (error) {
             console.error('Login failed:', error.message);
         }

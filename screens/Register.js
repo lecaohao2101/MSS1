@@ -11,10 +11,18 @@ const Register = () => {
 
     const handleRegister = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/register', {
-                email,
-                password,
-            });
+            const response = await axios.post(
+                'https://c3ea-113-160-224-57.ngrok-free.app/register',
+                JSON.stringify({
+                    email,
+                    password,
+                }),
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
 
             console.log('Registration successful:', response.data);
             navigation.navigate('Login');

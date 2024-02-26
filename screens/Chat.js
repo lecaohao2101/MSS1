@@ -58,7 +58,7 @@ const Chat = () => {
                 });
 
                 // Make a POST request to your server endpoint
-                const response = axios.post('https://175a-2405-4802-6ee8-87b0-5566-b3ae-205d-a26b.ngrok-free.app/message/image', formData, {
+                const response = axios.post('https://c3ea-113-160-224-57.ngrok-free.app/message/image', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
